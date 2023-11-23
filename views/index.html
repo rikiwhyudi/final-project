@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WebSocket</title>
+    <title>Chatting Application</title>
 
     <style type="text/css">
         .form {
@@ -88,7 +88,7 @@
 
             app.container = document.querySelector('.container')
 
-            app.ws = new WebSocket("ws://localhost:8080/ws?username=" + name)
+            app.ws = new WebSocket("ws://localhost:8080/api/v1/ws?username=" + name)
 
             app.ws.onopen = function() {
                 var message = '<b>me</b>: connected'
@@ -100,9 +100,9 @@
 
                 var messsage = ''
                 if (res.Type === 'New User') {
-                    message = 'User <b>' + res.From + '</b>: connected'
+                    message = 'user <b>' + res.From + '</b>: connected'
                 } else if (res.Type === 'Leave') {
-                    message = 'User <b>' + res.From + '</b>: disconnected'
+                    message = 'user <b>' + res.From + '</b>: disconnected'
                 } else {
                     message = '<b>' + res.From + '</b>: ' + res.Message 
                 }
