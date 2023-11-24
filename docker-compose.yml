@@ -1,6 +1,6 @@
 version: '3.9'
 services:
-  rest_api:
+  monolithic:
     container_name: chatting_container
     image: chatting-app:1.0.0
     build:
